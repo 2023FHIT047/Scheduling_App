@@ -87,15 +87,15 @@ function ScheduleLecture() {
 
   // Load courses, instructors, and existing lectures
   useEffect(() => {
-    axios.get("http://localhost:5000/courses")
+    axios.get("https://backend1234-orcin.vercel.app/courses")
       .then(res => setCourses(res.data))
       .catch(err => console.log(err));
 
-    axios.get("http://localhost:5000/instructors")
+    axios.get("https://backend1234-orcin.vercel.app/instructors")
       .then(res => setInstructors(res.data))
       .catch(err => console.log(err));
 
-    axios.get("http://localhost:5000/lectures")
+    axios.get("https://backend1234-orcin.vercel.app/lectures")
       .then(res => setExistingLectures(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -103,7 +103,7 @@ function ScheduleLecture() {
   // Load batches for selected course
   useEffect(() => {
     if (selectedCourse) {
-      axios.get(`http://localhost:5000/batches/course/${selectedCourse}`)
+      axios.get(`https://backend1234-orcin.vercel.app/batches/course/${selectedCourse}`)
         .then(res => setBatches(res.data))
         .catch(err => console.log(err));
       setSelectedBatch(""); // reset batch when course changes
@@ -136,7 +136,7 @@ function ScheduleLecture() {
       lecture_date: selectedDate
     };
 
-    axios.post("http://localhost:5000/schedule-lecture", newLecture)
+    axios.post("https://backend1234-orcin.vercel.app/schedule-lecture", newLecture)
       .then(() => {
         alert("Lecture scheduled successfully!");
         setSelectedCourse("");
@@ -238,7 +238,7 @@ function ScheduleLecture() {
     }
 
     try {
-      await axios.post("http://localhost:5000/instructors/add", {
+      await axios.post("https://backend1234-orcin.vercel.app/instructors/add", {
         name,
         email,
         password,
@@ -346,7 +346,7 @@ function Course() {
     if (img) formData.append("image", img);
 
     try {
-      await axios.post("http://localhost:5000/courses/add", formData, {
+      await axios.post("https://backend1234-orcin.vercel.app/courses/add", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Course added!");
@@ -454,7 +454,7 @@ function AddBatch() {
   const [endTime, setEndTime] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/courses")
+    axios.get("https://backend1234-orcin.vercel.app/courses")
       .then(res => setCourses(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -472,7 +472,7 @@ function AddBatch() {
       end_time: endTime
     };
 
-    axios.post("http://localhost:5000/add-batch", newBatch)
+    axios.post("https://backend1234-orcin.vercel.app/add-batch", newBatch)
       .then(res => {
         alert("Batch Added Successfully!");
         setBatchName("");

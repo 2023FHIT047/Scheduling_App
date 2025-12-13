@@ -13,7 +13,7 @@ function InstructorDashboard() {
     if (!instructorId) return;
 
     axios
-      .get(`http://localhost:5000/instructor/${instructorId}/lectures`)
+      .get(`https://backend1234-orcin.vercel.app/instructor/${instructorId}/lectures`)
       .then((res) => {
         setLectures(res.data);
       })
