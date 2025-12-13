@@ -13,11 +13,9 @@ app.use(express.json());
 // -------------------- MySQL Pool --------------------
 const db = mysql.createPool({
   host: "mysql-b487126-adwaitmhaske05-0fe0.b.aivencloud.com",
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  waitForConnections: true,
-  connectionLimit: 10
+  user: "avnadmin",
+  password: "AVNS_hxZenU7xvSzL4eQWfbU",
+  database: "mini_project",
 });
 
 // -------------------- Multer (Memory Storage) --------------------
@@ -160,7 +158,7 @@ app.get("/instructor/:id/lectures", async (req, res) => {
 });
 
 // Login
-app.post("/login", async (req, res) => {
+app.post("/Login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -182,5 +180,8 @@ app.post("/login", async (req, res) => {
 });
 
 // -------------------- EXPORT (VERY IMPORTANT) --------------------
-export default app;
+app.listen(5000, () => {
+
+console.log("Working ....")
+})
 
