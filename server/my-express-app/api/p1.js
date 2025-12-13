@@ -12,7 +12,7 @@ app.use(express.json());
 
 // -------------------- MySQL Pool --------------------
 const db = mysql.createPool({
-  host: process.env.DB_HOST,
+  host: "mysql-b487126-adwaitmhaske05-0fe0.b.aivencloud.com",
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
