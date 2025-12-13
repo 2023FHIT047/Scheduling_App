@@ -18,24 +18,24 @@ export default function LoginPage({ setAdminLoggedIn, setInstructorLoggedIn, set
   }
 
   axios.post("https://backend1234-orcin.vercel.app/Login", {
-        email: email.trim(),
-        password: password.trim()
-  });
+  email: email.trim(),
+  password: password.trim()
+})
+.then(res => {
+  console.log(res.data);
 
-    .then(res => {
-      if (res.data.role === "instructor") {
-        alert("Instructor Login Successful");
-        localStorage.setItem("instructor_id", res.data.instructor_id);
-        window.location.href = "/Instructors";
-      } else {
-        alert("Invalid role or credentials");
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Invalid email or password");
-    });
-};
+  if (res.data.status === "success") {
+    alert("Instructor Login Successful");
+    localStorage.setItem("instructor_id", res.data.instructor_id);
+    window.location.href = "/Instructors";
+  } else {
+    alert(res.data.reason);
+  }
+})
+.catch(err => {
+  console.error(err);
+  alert("Server error");
+});
 
 
   return (
