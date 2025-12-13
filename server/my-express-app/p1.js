@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import mysql from "mysql2/promise";
 import multer from "multer";
-
+require('dotenv').config()
 // -------------------- Express Setup --------------------
 const app = express();
 app.use(cors());
@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createPool({
   host: "mysql-b487126-adwaitmhaske05-0fe0.b.aivencloud.com",
   user: "avnadmin",
-  password: "dumy_pasword",
+  password: process.env.DB_PASSWORD,
   database: "mini_project",
   waitForConnections: true,
   connectionLimit: 10
