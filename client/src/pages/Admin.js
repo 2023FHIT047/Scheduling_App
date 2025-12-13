@@ -552,5 +552,3 @@ function AddBatch() {
 
 
 export default App;
-
-

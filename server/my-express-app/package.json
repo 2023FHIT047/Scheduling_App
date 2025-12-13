@@ -1,10 +1,6 @@
 {
   "name": "full-stack-project_backend",
   "version": "1.0.0",
-  "main": "p1.js",
-  "scripts": {
-     "start": "node p1.js"
-  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
