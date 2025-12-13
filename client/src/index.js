@@ -2,9 +2,9 @@ import React from 'react';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './Admin.js';
-import LoginPage from './login_page.js';
-import InstructorDashboard from './Instructors.js';
+import App from './pages/Admin.js';
+import LoginPage from './pages/login_page.js';
+import InstructorDashboard from './pages/Instructors.js';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
