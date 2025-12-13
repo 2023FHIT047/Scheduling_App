@@ -17,11 +17,11 @@ export default function LoginPage({ setAdminLoggedIn, setInstructorLoggedIn, set
     return;
   }
 
-  axios
-    .post("https://backend1234-orcin.vercel.app/login", {
-      email,
-      password
-    })
+  axios.post("https://backend1234-orcin.vercel.app/api/login", {
+        email: email.trim(),
+        password: password.trim()
+  });
+
     .then(res => {
       if (res.data.role === "instructor") {
         alert("Instructor Login Successful");
