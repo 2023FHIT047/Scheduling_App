@@ -14,7 +14,7 @@ export default function LoginPage({ setAdminLoggedIn, setInstructorLoggedIn, set
           alert("Admin Login Successful");
           window.location.href = "/admin"; 
         }
-    axios.post("https://backend1234-orcin.vercel.app/login", { email, password })
+    axios.post("https://backend1234-orcin.vercel.app/Login", { email, password })
       .then(res => {
        if (res.data.role === "instructor") {
           alert("Instructor Login Successful");
