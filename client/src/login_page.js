@@ -17,7 +17,7 @@ export default function LoginPage({ setAdminLoggedIn, setInstructorLoggedIn, set
     return;
   }
 
-  axios.post("https://backend1234-orcin.vercel.app/api/login", {
+  axios.post("https://backend1234-orcin.vercel.app/Login", {
         email: email.trim(),
         password: password.trim()
   });
