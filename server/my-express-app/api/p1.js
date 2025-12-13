@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createPool({
   host: "mysql-b487126-adwaitmhaske05-0fe0.b.aivencloud.com",
   user: "avnadmin",
-  password: process.env.DB_PASSWORD,
+  password: "AVNS_hxZenU7xvSzL4eQWfbU",
   database: "mini_project",
   waitForConnections: true,
   connectionLimit: 10
@@ -176,7 +176,7 @@ app.post("/login", async (req, res) => {
       res.status(401).json({ error: "Invalid email or password" });
     }
   } catch (err) {
-    res.status(500).json({ error: "Database error" });
+    res.status(500).json({ error: "Database errors" });
   }
 });
 
