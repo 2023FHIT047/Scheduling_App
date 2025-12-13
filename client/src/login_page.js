@@ -6,29 +6,37 @@ export default function LoginPage({ setAdminLoggedIn, setInstructorLoggedIn, set
   const [password, setPassword] = useState("");
   
   const handleLogin = () => {
-    if (!email || !password) {
-      alert("Please enter email and password");
-      return;
-    }
-     if (email == "admin@gmail.com" && password == "admin123") {
-          alert("Admin Login Successful");
-          window.location.href = "/admin"; 
-        }
-    axios.post("https://backend1234-orcin.vercel.app/Login", { email, password })
-      .then(res => {
-       if (res.data.role === "instructor") {
-          alert("Instructor Login Successful");
-          localStorage.setItem("instructor_id", res.data.instructor_id);
-          window.location.href = "/Instructors"; 
-        } else {
-          alert("Invalid role or credentials");
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        alert("Invalid email or password");
-      });
-  };
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
+  }
+
+  if (email === "admin@gmail.com" && password === "admin123") {
+    alert("Admin Login Successful");
+    window.location.href = "/admin";
+    return;
+  }
+
+  axios
+    .post("https://backend1234-orcin.vercel.app/login", {
+      email,
+      password
+    })
+    .then(res => {
+      if (res.data.role === "instructor") {
+        alert("Instructor Login Successful");
+        localStorage.setItem("instructor_id", res.data.instructor_id);
+        window.location.href = "/Instructors";
+      } else {
+        alert("Invalid role or credentials");
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Invalid email or password");
+    });
+};
+
 
   return (
     <div className="boxStyle" style={{position:"absolute",left:"500px",height:"400px",width:"600px"}}>
