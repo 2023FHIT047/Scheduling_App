@@ -36,7 +36,7 @@ export default function LoginPage({ setAdminLoggedIn, setInstructorLoggedIn, set
   console.error(err);
   alert("Server error");
 });
-
+}
 
   return (
     <div className="boxStyle" style={{position:"absolute",left:"500px",height:"400px",width:"600px"}}>
@@ -87,5 +87,5 @@ export default function LoginPage({ setAdminLoggedIn, setInstructorLoggedIn, set
         Login
       </button>
     </div>
-  );
+  )
 }
