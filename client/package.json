@@ -17,6 +17,10 @@
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "engines": {
+   "node": "v22.17.0",
+   "npm": "10.9.2"
+ },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -34,7 +38,7 @@
       ">0.2%",
       "not dead",
       "not op_mini all"
-    ],
+    																																							],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
